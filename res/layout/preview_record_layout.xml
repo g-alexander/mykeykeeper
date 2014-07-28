@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView"
+            android:layout_marginBottom="50dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Preview record"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginTop="3dp"
+                      android:background="@drawable/preview_gradient"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Name"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/textView"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:id="@+id/preview_field_name"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="NAME"
+                    android:textColor="#E0E0E0"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginTop="5dp"
+                      android:background="@drawable/preview_gradient"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Category"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/textView3"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/preview_field_category"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="CATEGORY"
+                    android:textColor="#E0E0E0"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginTop="5dp"
+                      android:background="@drawable/preview_gradient"/>
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Login"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/textView4"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:id="@+id/preview_field_login"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="LOGIN"
+                    android:textColor="#E0E0E0"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginTop="5dp"
+                      android:background="@drawable/preview_gradient"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Password"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/textView5"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:id="@+id/preview_field_password"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="PASSWORD"
+                    android:textColor="#E0E0E0"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginTop="5dp"
+                      android:background="@drawable/preview_gradient"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Description"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/textView6"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/preview_field_description"
+                    android:text="DESCRIPTION"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#E0E0E0"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="1dp"
+                      android:layout_marginTop="3dp"
+                      android:background="@drawable/preview_gradient"/>
+
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom" android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true">
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/back_image_view"
+                android:src="@drawable/back"
+                android:layout_alignTop="@+id/back_image_view"
+                android:layout_alignParentLeft="true"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/exit"
+                android:scaleType="centerInside"
+                android:id="@+id/storage_close_button"
+                android:layout_gravity="right"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+</RelativeLayout>
