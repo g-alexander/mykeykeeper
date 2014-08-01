@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 public class KeyRecord extends EntityRecord {
     private static final long serialVersionUID = 5548902614726794976L;
 
-    private int id;
+    private int id = -1;
     private String name;
     private Category category;
     private String login;

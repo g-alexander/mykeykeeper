@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 
 public class Category extends EntityRecord {
 
-    private int id;
+    private int id = -1;
     private String name;
 
     public Category(int id, String name) {

@@ -133,7 +133,7 @@ public class AddRecordActivity extends BaseActivity {
     }
 
     private void saveKeyRecord() {
-        final KeyRecord record = new KeyRecord();
+        //final KeyRecord record = new KeyRecord();
         final EditText nameField = (EditText)findViewById(R.id.add_field_name);
         final String name = nameField.getText() != null ? nameField.getText().toString() : "";
         final Spinner categoryField = (Spinner)findViewById(R.id.add_field_category);
