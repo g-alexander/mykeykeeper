@@ -6,6 +6,7 @@ import my.simple.keykeeper.data.entity.KeyRecord;
 
 import javax.crypto.BadPaddingException;
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by Alex on 12.05.2014.
@@ -27,4 +28,5 @@ public interface DataBase {
     public void removeCategoryForce(Category category);
     public void removeKeyRecord(KeyRecord record);
     public void selectStorage(String storageName, String storagePassword);
+    public Collection<KeyRecord> getRecordsByCategory(Category category);
 }

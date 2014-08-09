@@ -1,6 +1,8 @@
 package my.simple.keykeeper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -11,6 +13,7 @@ import android.widget.*;
 import my.simple.keykeeper.adapters.KeyRecordAdapter;
 import my.simple.keykeeper.data.DataProviderFactory;
 import my.simple.keykeeper.data.api.DataBase;
+import my.simple.keykeeper.data.entity.Category;
 import my.simple.keykeeper.data.entity.KeyRecord;
 
 import java.util.*;
@@ -24,6 +27,9 @@ public class KeyListActivity extends BaseActivity {
     private KeyRecordAdapter adapter;
     private List<KeyRecord> records;
     private boolean needUpdate = false;
+
+    private Category filterCategory;
+    private TextView header;
 
     private final KeyRecord selectedRecord = new KeyRecord();
 
@@ -50,6 +56,8 @@ public class KeyListActivity extends BaseActivity {
         selectedRecord.setId(-1);
 
         initDefaultWidgets();
+
+        this.header = (TextView)findViewById(R.id.records_header);
     }
 
     private void showPreview(int position) {
@@ -66,6 +74,43 @@ public class KeyListActivity extends BaseActivity {
                 addRecordButtonClick();
             }
         });
+        final ImageButton filterButton = (ImageButton)findViewById(R.id.filter_button);
+        filterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterButtonClick();
+            }
+        });
+    }
+
+    private void filterButtonClick() {
+        final Collection<Category> categories = dataBase.getAllCategories();
+        final List<String> categoryNames = new LinkedList<String>();
+        categoryNames.add("All");
+        for (Category c : categories) {
+            categoryNames.add(c.getName());
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Categories");
+
+        builder.setItems(categoryNames.toArray(new String[0]), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (item == 0) {
+                    filterClicked(null);
+                } else {
+                    filterClicked(categories.toArray(new Category[0])[item - 1]);
+                }
+            }
+        });
+        builder.setCancelable(false);
+        builder.create().show();
+    }
+
+    private void filterClicked(Category category) {
+        this.filterCategory = category;
+        refreshRecordsData();
     }
 
     private void addRecordButtonClick() {
@@ -83,7 +128,13 @@ public class KeyListActivity extends BaseActivity {
 
     private void refreshRecordsData() {
         records.clear();
-        records.addAll(dataBase.getAllKeyRecords());
+        if (filterCategory == null) {
+            records.addAll(dataBase.getAllKeyRecords());
+            header.setText("all records");
+        } else {
+            records.addAll(dataBase.getRecordsByCategory(filterCategory));
+            header.setText(filterCategory.getName());
+        }
         adapter.notifyDataSetChanged();
         needUpdate = false;
     }

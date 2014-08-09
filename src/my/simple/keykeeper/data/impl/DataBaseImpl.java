@@ -151,6 +151,23 @@ public class DataBaseImpl implements DataBase {
         this.records.clear();
     }
 
+    @Override
+    public Collection<KeyRecord> getRecordsByCategory(Category category) {
+        List<KeyRecord> res = new LinkedList<KeyRecord>();
+        for (KeyRecord rec : getAllKeyRecords()) {
+            if (rec.getCategory().equals(category)) {
+                res.add(rec);
+            }
+        }
+        Collections.sort(res, new Comparator<KeyRecord>() {
+            @Override
+            public int compare(KeyRecord keyRecord, KeyRecord keyRecord2) {
+                return keyRecord.getName().compareTo(keyRecord2.getName());
+            }
+        });
+        return res;
+    }
+
     private boolean categoryRecordsExists(Category category) {
         for (KeyRecord record : records.values()) {
             if (record.getCategory().equals(category)) {

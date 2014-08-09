@@ -3,12 +3,24 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
         >
-
+    <RelativeLayout android:layout_width="fill_parent"
+                    android:layout_height="30dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="all records"
+                android:id="@+id/records_header"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                />
+    </RelativeLayout>
     <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/records_list"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="30dp"/>
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="50dp"
@@ -26,6 +38,18 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="70dp"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/filter"
+                android:scaleType="centerInside"
+                android:id="@+id/filter_button"
+                android:layout_gravity="right"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="130dp"/>
         <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
