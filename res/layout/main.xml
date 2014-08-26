@@ -4,12 +4,13 @@
               android:layout_height="match_parent"
         >
     <RelativeLayout android:layout_width="fill_parent"
-                    android:layout_height="30dp">
+                    android:layout_height="35dp">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="all records"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:text="@string/all_records"
                 android:id="@+id/records_header"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
@@ -20,15 +21,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/records_list"
             android:layout_marginBottom="50dp"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="35dp"/>
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:layout_gravity="bottom" android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true">
-        <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+        <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:src="@drawable/add"
@@ -38,7 +39,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="70dp"/>
-        <ImageButton
+        <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="2dp"
@@ -57,12 +58,12 @@
                 android:src="@drawable/back"
                 android:layout_alignTop="@+id/back_image_view"
                 android:layout_alignParentLeft="true"/>
-        <ImageButton
+        <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:src="@drawable/exit"
+                android:src="@drawable/exitb"
                 android:scaleType="centerInside"
                 android:id="@+id/storage_close_button"
                 android:layout_gravity="right"

@@ -13,6 +13,7 @@ import java.util.Collections;
  */
 public interface DataBase {
     public static final String VERSION_1 = "Simple key keeper format version 1.0";
+    public static final String VERSION_1_1 = "Simple key keeper format version 1.1";
 
     public void save();
     public void load() throws BadPaddingException;

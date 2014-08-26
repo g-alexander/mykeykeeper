@@ -9,7 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Name"
+            android:text="@string/name"
             android:id="@+id/textView"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
@@ -18,7 +18,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Category name"
+            android:hint="@string/category_name"
             android:id="@+id/add_category_name_field"/>
     <RelativeLayout
             android:layout_width="fill_parent"

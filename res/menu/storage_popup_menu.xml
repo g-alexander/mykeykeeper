@@ -2,8 +2,8 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/menu_category_popup">
-        <item android:id="@+id/menu_storage_add" android:title="add"/>
-        <item android:id="@+id/menu_storage_edit" android:title="edit"/>
+        <item android:id="@+id/menu_storage_add" android:title="@string/add_new_storage_lower"/>
+        <item android:id="@+id/menu_storage_edit" android:title="@string/edit"/>
         <item android:id="@+id/menu_storage_remove" android:title="remove"/>
     </group>
 </menu>

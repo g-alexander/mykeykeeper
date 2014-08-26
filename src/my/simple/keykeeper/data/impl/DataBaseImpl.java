@@ -23,7 +23,7 @@ public class DataBaseImpl implements DataBase {
     private Map<Integer, KeyRecord> records;
     private String storageName = "default";
     private String storagePassword = "default";
-    final String currentVersion = VERSION_1;
+    final String currentVersion = VERSION_1_1;
 
     public DataBaseImpl() {
         this.categories = new HashMap<Integer, Category>();
@@ -85,6 +85,17 @@ public class DataBaseImpl implements DataBase {
     @Override
     public void addCategory(Category category) {
         this.categories.put(category.getId(), category);
+        refreshCategories(category);
+    }
+
+    private void refreshCategories(Category category) {
+        Iterator<KeyRecord> iter = this.records.values().iterator();
+        while(iter.hasNext()) {
+            KeyRecord rec = iter.next();
+            if (rec.getCategory().getId() == category.getId()) {
+                rec.setCategory(category);
+            }
+        }
     }
 
     @Override
@@ -121,7 +132,7 @@ public class DataBaseImpl implements DataBase {
     @Override
     public void removeCategory(Category category) throws RecordsExistsException {
         if (categoryRecordsExists(category)) {
-            throw new RecordsExistsException("У категории ксть записи. Удалние невозможно");
+            throw new RecordsExistsException("У категории есть записи. Удалние невозможно");
         }
         this.categories.remove(category.getId());
     }
@@ -200,9 +211,11 @@ public class DataBaseImpl implements DataBase {
         String storageVersion = new String(decrypted, "UTF-8");
         if (storageVersion.equals(VERSION_1)) {
             return VERSION_1;
-        } else {
-            throw new IOException("Unknown storage version");
         }
+        if (storageVersion.equals(VERSION_1_1)) {
+            return VERSION_1_1;
+        }
+        throw new IOException("Unknown storage version");
     }
 
     private <T extends EntityRecord> void saveData(String fileName, Collection<T> data) {
@@ -253,18 +266,22 @@ public class DataBaseImpl implements DataBase {
         try {
             File categoryFile = new File(Constants.APP_DIR + fileName);
             if (!categoryFile.exists()) {
-                Log.w(Constants.APP_NAME, "[DataBAseImpl] file " + fileName + " not exists");
+                Log.w(Constants.APP_NAME, "[DataBaseImpl] file " + fileName + " not exists");
                 return;
             }
             fis = new FileInputStream(categoryFile);
             BufferedInputStream bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
-            readMagicVersion(ois);
+            String storageVersion = readMagicVersion(ois);
             int count = ois.readInt();
             for (int i = 0; i < count; i++) {
                 T rec = cls.newInstance();
-                rec.readObject(ois, storagePassword);
-                map.put(rec.getId(), rec);
+                try {
+                    rec.readObject(ois, storagePassword, storageVersion);
+                    map.put(rec.getId(), rec);
+                } catch (Exception e) {
+                    Log.e(Constants.APP_NAME, "[DataBaseImpl] Exception on loading data: " + e.getMessage());
+                }
             }
 
         } catch (BadPaddingException e) {

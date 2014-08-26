@@ -6,9 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.*;
 import my.simple.keykeeper.data.DataProviderFactory;
 import my.simple.keykeeper.data.api.StorageProvider;
 
@@ -19,10 +17,26 @@ public class AddStorageActivity extends BaseActivity {
 
     private final StorageProvider storageProvider = DataProviderFactory.INSTANCE.getStorageProvider();
 
+    private String differentPasswords;
+    private String enterStorageName;
+    private String storageAlreadyExists;
+    private String defaultStr;
+    private String addNewKeyStorage;
+
+    private void initTextStrings() {
+        differentPasswords = getResources().getString(R.string.different_passwords);
+        enterStorageName = getResources().getString(R.string.enter_storage_name);
+        storageAlreadyExists = getResources().getString(R.string.storage_already_exists);
+        defaultStr = getResources().getString(R.string.default_str);
+        addNewKeyStorage = getResources().getString(R.string.add_new_key_storage);
+
+    }
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.add_storage_layout);
+        initTextStrings();
         initWidgets();
     }
 
@@ -33,23 +47,41 @@ public class AddStorageActivity extends BaseActivity {
     }
 
     private void initSaveButton() {
-        ImageButton saveButton = (ImageButton)findViewById(R.id.add_storage_button_ok);
+        final View saveButton = findViewById(R.id.add_storage_button_ok);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveButtonClick();
             }
         });
+        final TextView saveText = (TextView)findViewById(R.id.add_storage_text_ok);
+        if (saveText != null) {
+            saveText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    saveButtonClick();
+                }
+            });
+        }
     }
 
     private void initCancelButton() {
-        ImageButton cancelButton = (ImageButton)findViewById(R.id.add_storage_button_cancel);
+        final View cancelButton = findViewById(R.id.add_storage_button_cancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cancelButtonClick();
             }
         });
+        final TextView cancelText = (TextView)findViewById(R.id.add_storage_text_cancel);
+        if (cancelText != null) {
+            cancelText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    cancelButtonClick();
+                }
+            });
+        }
     }
 
     private void saveButtonClick() {
@@ -60,15 +92,15 @@ public class AddStorageActivity extends BaseActivity {
         final EditText repeatPasswordField = (EditText)findViewById(R.id.add_storage_repeat_password_field);
         final String storagePasswordRepeat = repeatPasswordField.getText().toString();
         if (!storagePassword.equals(storagePasswordRepeat)) {
-            Toast.makeText(this, "Different passwords", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, differentPasswords, Toast.LENGTH_LONG).show();
             return;
         }
         if (storageName.equals("")) {
-            Toast.makeText(this, "Enter storage name", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, enterStorageName, Toast.LENGTH_LONG).show();
             return;
         }
         if (storageProvider.getStorageSet().contains(storageName)) {
-            Toast.makeText(this, "Storage already exists", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, storageAlreadyExists, Toast.LENGTH_LONG).show();
             return;
         }
         storageProvider.addStorage(storageName, storagePassword);
@@ -90,8 +122,8 @@ public class AddStorageActivity extends BaseActivity {
         boolean autoCreate = getIntent().getBooleanExtra("auto_create", false);
         if (autoCreate) {
             EditText nameField = (EditText)findViewById(R.id.add_storage_name_field);
-            nameField.setText("Default");
-            Toast.makeText(this, "Add new key storage", Toast.LENGTH_LONG).show();
+            nameField.setText(defaultStr);
+            Toast.makeText(this, addNewKeyStorage, Toast.LENGTH_LONG).show();
         }
     }
 }

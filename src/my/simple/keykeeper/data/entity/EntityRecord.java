@@ -15,7 +15,7 @@ import java.security.SecureRandom;
  * Created by Alex on 12.05.2014.
  */
 public abstract class EntityRecord {
-    public abstract void readObject(ObjectInputStream stream, String password) throws Exception;
+    public abstract void readObject(ObjectInputStream stream, String password, String storageVersion) throws Exception;
     public abstract void writeObject(ObjectOutputStream stream, String password) throws Exception;
     public abstract int getId();
     public abstract void generateId();

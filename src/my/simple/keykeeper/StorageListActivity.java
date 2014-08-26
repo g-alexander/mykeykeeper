@@ -31,6 +31,8 @@ public class StorageListActivity extends BaseActivity {
     private String license;
     private boolean showLicense;
 
+
+
     private final Configuration conf = new ConfigurationImpl(this);
 
     public void onCreate(Bundle savedInstanceState) {
@@ -50,13 +52,22 @@ public class StorageListActivity extends BaseActivity {
     }
 
     private void initAddButton() {
-        final ImageButton addButton = (ImageButton)findViewById(R.id.add_storage_button);
+        final ImageView addButton = (ImageView)findViewById(R.id.add_storage_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addButtonClick(false);
             }
         });
+        final TextView addText = (TextView)findViewById(R.id.add_storage_text);
+        if (addText != null) {
+            addText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addButtonClick(false);
+                }
+            });
+        }
     }
 
     private void initListView() {
@@ -185,7 +196,13 @@ public class StorageListActivity extends BaseActivity {
             }
         });
         changeTermsOfUse(false); //Первоначальный сброс
-
+        final Button closeButton = (Button)dialog.findViewById(R.id.dialog_close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.cancel();
+            }
+        });
         dialog.show();
     }
 

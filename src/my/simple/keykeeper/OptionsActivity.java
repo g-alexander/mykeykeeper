@@ -17,7 +17,7 @@ import java.util.Arrays;
 /**
  * Created by Alex on 06.06.2014.
  */
-public class OptionsActivity extends Activity {
+public class OptionsActivity extends BaseActivity {
 
     private final Configuration config = new ConfigurationImpl(this);
 
@@ -26,7 +26,9 @@ public class OptionsActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.options_layout);
+        setEnableMenu(false);
         initWidgets();
+        initDefaultWidgets();
     }
 
     private void initWidgets() {

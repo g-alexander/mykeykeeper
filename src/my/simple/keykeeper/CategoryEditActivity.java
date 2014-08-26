@@ -9,9 +9,7 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.*;
 import my.simple.keykeeper.adapters.CategoryAdapter;
 import my.simple.keykeeper.data.DataProviderFactory;
 import my.simple.keykeeper.data.api.DataBase;
@@ -26,16 +24,23 @@ import java.util.List;
  */
 public class CategoryEditActivity extends BaseActivity {
 
+    private String categoryContainsRecord;
+
     private final DataBase dataBase = DataProviderFactory.INSTANCE.getDataBase();
     private final List<Category> categories = new ArrayList<Category>();
     private CategoryAdapter adapter;
     private boolean needUpdate = false;
     private Category selectedCategory;
 
+    private void initTextStrings() {
+        categoryContainsRecord = getResources().getString(R.string.category_contains_record);
+    }
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.category_layout);
+        initTextStrings();
         initCategoryList();
         initAddButton();
         initDefaultWidgets();
@@ -74,13 +79,22 @@ public class CategoryEditActivity extends BaseActivity {
     }
 
     private void initAddButton() {
-        ImageButton addButton = (ImageButton)findViewById(R.id.add_category_button);
+        final View addButton = findViewById(R.id.add_category_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addButtonClick();
             }
         });
+        final TextView addText = (TextView)findViewById(R.id.add_category_text);
+        if (addText != null) {
+            addText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addButtonClick();
+                }
+            });
+        }
     }
 
     private void addButtonClick() {
@@ -116,7 +130,7 @@ public class CategoryEditActivity extends BaseActivity {
             }
         };
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setMessage("Category contains records. Delete anyway?")
+        dialogBuilder.setMessage(categoryContainsRecord)
                 .setPositiveButton("Yes", handle)
                 .setNegativeButton("No", handle)
                 .show();

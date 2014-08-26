@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import my.simple.keykeeper.data.DataProviderFactory;
 import my.simple.keykeeper.data.api.DataBase;
 import my.simple.keykeeper.data.entity.Category;
@@ -47,17 +49,18 @@ public class AddCategoryActivity extends BaseActivity {
     }
 
     private void initSaveButton() {
-        ImageButton saveButton = (ImageButton)findViewById(R.id.add_category_button_ok);
+        final ImageButton saveButton = (ImageButton)findViewById(R.id.add_category_button_ok);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveButtonClick();
             }
         });
+
     }
 
     private void initCancelButton() {
-        ImageButton cancelButton = (ImageButton)findViewById(R.id.add_category_button_cancel);
+        final ImageButton cancelButton = (ImageButton)findViewById(R.id.add_category_button_cancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

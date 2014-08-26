@@ -19,9 +19,17 @@
             <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Show terms of use"
+                    android:text="@string/show_terms_of_use"
                     android:checked="false"
                     android:id="@+id/show_terms"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/close"
+                    android:id="@+id/dialog_close"
+                    android:width="100dp"
+                    android:layout_gravity="center_horizontal"/>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

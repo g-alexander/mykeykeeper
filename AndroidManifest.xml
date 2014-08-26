@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="my.simple.keykeeper"
-          android:versionCode="1"
-          android:versionName="1.0">
+          android:versionCode="3"
+          android:versionName="1.2">
     <uses-sdk android:minSdkVersion="10"/>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,7 +13,7 @@
 
         </activity>
 
-        <activity android:name="my.simple.keykeeper.KeyListActivity" android:label="@string/app_name"/>
+        <activity android:name="my.simple.keykeeper.KeyListActivity" android:label="@string/app_name" android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".AddRecordActivity" android:label="Add Record"/>
         <activity android:name=".CategoryEditActivity" android:label="Category"/>
         <activity android:name=".AddCategoryActivity" android:theme="@android:style/Theme.Dialog" android:label="Category"/>
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddStorageActivity"/>
-        <activity android:name=".StoragePasswordActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".StoragePasswordActivity" android:theme="@android:style/Theme.Dialog" android:noHistory="true"/>
         <activity android:name=".EditStorageActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".OptionsActivity"/>
 

@@ -1,7 +1,9 @@
 package my.simple.keykeeper.data.entity;
 
+import android.util.Base64;
 import my.simple.keykeeper.data.DataProviderFactory;
 import my.simple.keykeeper.data.api.AES;
+import my.simple.keykeeper.data.api.DataBase;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -101,11 +103,15 @@ public class KeyRecord extends EntityRecord {
     }
 
     @Override
-    public void readObject(ObjectInputStream stream, String password) throws Exception {
+    public void readObject(ObjectInputStream stream, String password, String storageVersion) throws Exception {
         int objectLen = stream.readInt();
         byte[] buf = new byte[objectLen];
         stream.read(buf, 0, objectLen);
         byte[] decripted = AES.decrypt(AES.prepareKey(password), buf);
+        if (storageVersion.equals(DataBase.VERSION_1_1)) {
+            byte[] temp = Base64.decode(decripted, Base64.DEFAULT);
+            decripted = temp;
+        }
         ByteBuffer buffer = ByteBuffer.wrap(decripted);
         buffer.position(0);
         this.id = buffer.getInt();
@@ -143,9 +149,10 @@ public class KeyRecord extends EntityRecord {
         buffer.put(this.password.getBytes("UTF-8"));
         buffer.putInt(description.getBytes("UTF-8").length);
         buffer.put(description.getBytes("UTF-8"));
-        byte[] encripted = AES.encrypt(AES.prepareKey(password), buffer.array());
-        stream.writeInt(encripted.length);
-        stream.write(encripted);
+        byte[] baseBytes = Base64.encode(buffer.array(), Base64.DEFAULT);
+        byte[] encrypted = AES.encrypt(AES.prepareKey(password), baseBytes);
+        stream.writeInt(encrypted.length);
+        stream.write(encrypted);
     }
 
     @Override

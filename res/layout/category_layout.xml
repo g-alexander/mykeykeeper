@@ -14,7 +14,7 @@
             android:layout_height="50dp"
             android:layout_gravity="bottom" android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true">
-        <ImageButton
+        <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="2dp"
@@ -33,12 +33,12 @@
                 android:src="@drawable/back"
                 android:layout_alignTop="@+id/back_image_view"
                 android:layout_alignParentLeft="true"/>
-        <ImageButton
+        <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:src="@drawable/exit"
+                android:src="@drawable/exitb"
                 android:scaleType="centerInside"
                 android:id="@+id/storage_close_button"
                 android:layout_gravity="right"

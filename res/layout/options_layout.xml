@@ -9,10 +9,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Pasword generation"
+            android:text="@string/password_generation"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:textSize="27dp"
+            android:textSize="27sp"
             android:textStyle="bold"
             android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
     <RelativeLayout
@@ -23,8 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="a-z"
-                android:textSize="25dp"
+                android:text="@string/a_z"
+                android:textSize="25sp"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -45,8 +45,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="A-Z"
-                android:textSize="25dp"
+                android:text="@string/a_z_upper"
+                android:textSize="25sp"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -67,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="0-9"
-                android:textSize="25dp"
+                android:text="@string/n0_9"
+                android:textSize="25sp"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -89,8 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="!@#$%^&amp;*()-_+="
-                android:textSize="25dp"
+                android:text="@string/chars"
+                android:textSize="25sp"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -111,8 +111,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:text="Length"
-                android:textSize="25dp"
+                android:text="@string/length"
+                android:textSize="25sp"
                 android:layout_marginLeft="10dp"
                 />
 

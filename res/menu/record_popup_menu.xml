@@ -2,8 +2,8 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/menu_record_popup">
-        <item android:id="@+id/menu_add_record" android:title="add"/>
-        <item android:id="@+id/menu_edit_record" android:title="edit"/>
-        <item android:id="@+id/menu_remove_record" android:title="remove"/>
+        <item android:id="@+id/menu_add_record" android:title="@string/add"/>
+        <item android:id="@+id/menu_edit_record" android:title="@string/edit"/>
+        <item android:id="@+id/menu_remove_record" android:title="@string/remove"/>
     </group>
 </menu>

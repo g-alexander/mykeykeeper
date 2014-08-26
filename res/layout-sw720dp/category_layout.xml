@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="300dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:text="@string/categories"
+                android:id="@+id/categories_header"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+        <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/category_list_view"
+                android:layout_marginBottom="50dp"
+                android:layout_below="@id/categories_header"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="bottom" android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true">
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="@string/menu"
+                  android:textSize="30dp"
+                  android:textStyle="bold"
+                  android:layout_marginTop="20dp"
+                  android:gravity="center_horizontal"
+                  android:id="@+id/record_list_menu_title"/>
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"
+                android:src="@drawable/add"
+                android:scaleType="centerInside"
+                android:id="@+id/add_category_button"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/record_list_menu_title"
+                />
+        <TextView
+                android:layout_marginLeft="60dp"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/add_new_record"
+                android:id="@+id/add_new_category"
+                android:gravity="center_vertical"
+                android:layout_below="@id/record_list_menu_title"
+                android:layout_marginTop="20dp"/>
+
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/back_image_view"
+                android:src="@drawable/back"
+                android:layout_alignTop="@+id/back_image_view"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"/>
+        <TextView
+                android:layout_marginLeft="60dp"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/back"
+                android:id="@+id/back_image_text"
+                android:gravity="center_vertical"
+                android:layout_alignParentBottom="true"/>
+        <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/exitb"
+                android:scaleType="centerInside"
+                android:id="@+id/storage_close_button"
+                android:layout_alignParentLeft="true"
+                android:layout_above="@id/back_image_view"/>
+        <TextView
+                android:layout_marginLeft="60dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/close_storage"
+                android:id="@+id/storage_close_text"
+                android:layout_above="@id/back_image_text"
+                android:gravity="center_vertical"/>
+
+    </RelativeLayout>
+</RelativeLayout>

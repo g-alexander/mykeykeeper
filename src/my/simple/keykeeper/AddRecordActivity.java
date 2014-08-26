@@ -78,23 +78,41 @@ public class AddRecordActivity extends BaseActivity {
     }
 
     private void initCancelButton() {
-        final ImageButton cancelButton = (ImageButton)findViewById(R.id.add_button_cancel);
+        final View cancelButton = findViewById(R.id.add_button_cancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+        final TextView cancelText = (TextView)findViewById(R.id.cancel_record_text);
+        if (cancelText != null) {
+            cancelText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+        }
     }
 
     private void initSaveButton() {
-        final ImageButton saveButton = (ImageButton)findViewById(R.id.add_button_ok);
+        final View saveButton = findViewById(R.id.add_button_ok);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveKeyRecord();
             }
         });
+        final TextView saveText = (TextView)findViewById(R.id.save_record_text);
+        if (saveText != null) {
+            saveText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    saveKeyRecord();
+                }
+            });
+        }
     }
 
     private void initAddCategoryButton() {

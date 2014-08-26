@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -67,20 +68,39 @@ public class KeyListActivity extends BaseActivity {
     }
 
     private void prepareButtons() {
-        final ImageButton addButton = (ImageButton)findViewById(R.id.add_record_button);
+        final ImageView addButton = (ImageView)findViewById(R.id.add_record_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addRecordButtonClick();
             }
         });
-        final ImageButton filterButton = (ImageButton)findViewById(R.id.filter_button);
+        final TextView addText = (TextView)findViewById(R.id.add_record_text);
+        if (addText != null) {
+            addText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addRecordButtonClick();
+                }
+            });
+        }
+        final ImageView filterButton = (ImageView)findViewById(R.id.filter_button);
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 filterButtonClick();
             }
         });
+        final TextView filterText = (TextView)findViewById(R.id.records_filter);
+        if (filterText != null) {
+            filterText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    filterButtonClick();
+                }
+            });
+        }
+
     }
 
     private void filterButtonClick() {
@@ -184,5 +204,10 @@ public class KeyListActivity extends BaseActivity {
         dataBase.removeKeyRecord(selectedRecord);
         dataBase.save();
         refreshRecordsData();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 }

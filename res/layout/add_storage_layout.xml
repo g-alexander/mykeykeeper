@@ -5,10 +5,22 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/new_storage"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
+            android:textStyle="bold"/>
+
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Name"
+            android:text="@string/name"
             android:id="@+id/textView1001"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
@@ -17,13 +29,13 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Storage name"
+            android:hint="@string/storage_name"
             android:id="@+id/add_storage_name_field"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Password"
+            android:text="@string/password"
             android:id="@+id/textView1002"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
@@ -32,14 +44,14 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Storage password"
+            android:hint="@string/storage_password"
             android:id="@+id/add_storage_password_field"
             android:password="true"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Repeat password"
+            android:text="@string/repeat_password"
             android:id="@+id/textView1003"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
@@ -48,7 +60,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Repeat storage password"
+            android:hint="@string/repeat_storage_password"
             android:id="@+id/add_storage_repeat_password_field"
             android:password="true"/>
     <RelativeLayout
