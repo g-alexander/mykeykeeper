@@ -7,7 +7,7 @@
     <string name="menu">Menu</string>
     <string name="add_new_storage">Add new storage</string>
     <string name="exit">Exit</string>
-    <string name="pass_for_storage">Password for storage\: </string>
+    <string name="pass_for_storage">Password for storage\:</string>
     <string name="cant_open_storage">Can\'t open storage</string>
     <string name="name">Name</string>
     <string name="storage_name">Storage name</string>
@@ -35,14 +35,14 @@
     <string name="n0_9">0-9</string>
     <string name="chars">!@#$%^&amp;*()-_+=</string>
     <string name="length">Length</string>
-    <string name="all_records">all records</string>
+    <string name="all_records">All records</string>
     <string name="show_terms_of_use">Show terms of use</string>
     <string name="category_contains_record">Category contains records. Delete anyway?</string>
     <string name="add_new_record">Add new record</string>
     <string name="record_name">Record name</string>
-    <string name="record_login">Record login</string>
-    <string name="record_password">Record password</string>
-    <string name="additional_record_information">Additional record information</string>
+    <string name="record_login">Login</string>
+    <string name="record_password">Password</string>
+    <string name="additional_record_information">Additional information</string>
     <string name="category_name">Category name</string>
     <string name="add">add</string>
     <string name="edit">edit</string>
@@ -59,4 +59,5 @@
     <string name="add_new_storage_lower">add new storage</string>
     <string name="add_new_category">Add new category</string>
     <string name="close">Close</string>
+    <string name="all">All</string>
 </resources>

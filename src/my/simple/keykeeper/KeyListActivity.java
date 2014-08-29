@@ -34,6 +34,10 @@ public class KeyListActivity extends BaseActivity {
 
     private final KeyRecord selectedRecord = new KeyRecord();
 
+    private String allRecords;
+    private String all;
+    private String categories;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +63,10 @@ public class KeyListActivity extends BaseActivity {
         initDefaultWidgets();
 
         this.header = (TextView)findViewById(R.id.records_header);
+
+        allRecords = getResources().getString(R.string.all_records);
+        all = getResources().getString(R.string.all);
+        categories = getResources().getString(R.string.categories);
     }
 
     private void showPreview(int position) {
@@ -106,13 +114,13 @@ public class KeyListActivity extends BaseActivity {
     private void filterButtonClick() {
         final Collection<Category> categories = dataBase.getAllCategories();
         final List<String> categoryNames = new LinkedList<String>();
-        categoryNames.add("All");
+        categoryNames.add(all);
         for (Category c : categories) {
             categoryNames.add(c.getName());
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Categories");
+        builder.setTitle(R.string.categories);
 
         builder.setItems(categoryNames.toArray(new String[0]), new DialogInterface.OnClickListener() {
             @Override
@@ -150,7 +158,7 @@ public class KeyListActivity extends BaseActivity {
         records.clear();
         if (filterCategory == null) {
             records.addAll(dataBase.getAllKeyRecords());
-            header.setText("all records");
+            header.setText(allRecords);
         } else {
             records.addAll(dataBase.getRecordsByCategory(filterCategory));
             header.setText(filterCategory.getName());

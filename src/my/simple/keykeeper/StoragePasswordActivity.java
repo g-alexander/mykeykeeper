@@ -46,7 +46,7 @@ public class StoragePasswordActivity extends BaseActivity {
     private void initLabel() {
         final String storageName = this.getIntent().getStringExtra("storage_name");
         TextView label = (TextView)findViewById(R.id.storage_password_label);
-        label.setText(passForStorage + storageName);
+        label.setText(passForStorage + " " + storageName);
 
     }
 
