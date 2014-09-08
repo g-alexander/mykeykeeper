@@ -3,7 +3,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
+    <RelativeLayout android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="320dp">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,18 +18,24 @@
             android:textSize="30dp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"/>
+
     <ListView
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:id="@+id/storage_list_view"
             android:layout_below="@+id/textView"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="300dp"/>
+            android:layout_alignParentLeft="true"/>
+    </RelativeLayout>
     <RelativeLayout
             android:layout_width="300dp"
             android:layout_height="fill_parent"
             android:layout_gravity="bottom" android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/menu_shape">
+        <RelativeLayout android:layout_width="2dp"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@android:color/darker_gray"/>
         <RelativeLayout android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="30dp"
@@ -49,9 +57,10 @@
                     android:layout_gravity="left"
                     android:layout_alignParentLeft="true"
                     android:layout_below="@id/storage_list_menu_title"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"/>
             <TextView
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="80dp"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -69,9 +78,10 @@
                     android:layout_gravity="left"
                     android:layout_alignParentLeft="true"
                     android:layout_below="@id/add_storage_button"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"/>
             <TextView
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="80dp"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -86,17 +96,20 @@
                     android:layout_height="50dp"
                     android:id="@+id/back_image_view"
                     android:src="@drawable/back"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentBottom="true"
-                    />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"/>
             <TextView
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="80dp"
                     android:layout_width="fill_parent"
                     android:layout_height="50dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/exit"
                     android:id="@+id/back_image_text"
                     android:gravity="center_vertical"
-                    android:layout_alignParentBottom="true"/>
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"/>
 
 
         </RelativeLayout>
