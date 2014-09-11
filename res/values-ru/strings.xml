@@ -34,7 +34,7 @@
     <string name="a_z_upper">A-Z</string>
     <string name="n0_9">0-9</string>
     <string name="chars">!@#$%^&amp;*()-_+=</string>
-    <string name="length">Длинна</string>
+    <string name="length">Длина</string>
     <string name="all_records">Все записи</string>
     <string name="show_terms_of_use">Показать соглашение</string>
     <string name="category_contains_record">У категории есть записи. Удалить?</string>
@@ -47,7 +47,7 @@
     <string name="add">добавить</string>
     <string name="edit">изменить</string>
     <string name="remove">удалить</string>
-    <string name="options">Настнойки</string>
+    <string name="options">Настройки</string>
     <string name="close_storage">Закрыть базу</string>
     <string name="filter">Фильтр</string>
     <string name="back">Назад</string>
