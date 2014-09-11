@@ -237,7 +237,7 @@ public class DataBaseImpl implements DataBase {
             for (T record : data) {
                 record.writeObject(oos, storagePassword);
             }
-
+            oos.flush();
         } catch (IOException e) {
             android.util.Log.e(Constants.APP_NAME, "[DataBaseImpl] Error saving data: " + e.getMessage());
         } catch (Exception e) {

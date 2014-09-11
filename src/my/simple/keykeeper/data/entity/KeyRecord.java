@@ -106,7 +106,14 @@ public class KeyRecord extends EntityRecord {
     public void readObject(ObjectInputStream stream, String password, String storageVersion) throws Exception {
         int objectLen = stream.readInt();
         byte[] buf = new byte[objectLen];
-        stream.read(buf, 0, objectLen);
+        int read = stream.read(buf, 0, objectLen);
+        int count = 0;
+        while (read < objectLen && count++ < 10) {
+            byte[] ttt = new byte[objectLen - read];
+            int r = stream.read(ttt, 0, objectLen - read);
+            System.arraycopy(ttt, 0, buf, read, r);
+            read += r;
+        }
         byte[] decripted = AES.decrypt(AES.prepareKey(password), buf);
         if (storageVersion.equals(DataBase.VERSION_1_1)) {
             byte[] temp = Base64.decode(decripted, Base64.DEFAULT);
