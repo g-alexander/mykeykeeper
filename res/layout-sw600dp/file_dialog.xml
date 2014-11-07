@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                android:layout_marginLeft="305dp">
+
+
+        <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/file_name"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="5dp"/>
+    </RelativeLayout>
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/file_dialog_list"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="305dp"/>
+    <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="bottom" android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true">
+        <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="bottom" android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/menu_shape">
+            <RelativeLayout android:layout_width="2dp"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentRight="true"
+                            android:background="@android:color/darker_gray"/>
+            <TextView android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/menu"
+                      android:textSize="30dp"
+                      android:textStyle="bold"
+                      android:layout_marginTop="20dp"
+                      android:gravity="center_horizontal"
+                      android:id="@+id/record_list_menu_title"/>
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="2dp"
+                    android:src="@drawable/ok"
+                    android:scaleType="centerInside"
+                    android:id="@+id/file_name_ok"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/record_list_menu_title"
+                    android:layout_marginLeft="20dp"/>
+            <TextView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/select"
+                    android:id="@+id/file_name_ok_text"
+                    android:gravity="center_vertical"
+                    android:layout_below="@id/record_list_menu_title"
+                    android:layout_marginTop="20dp"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/back_image_view"
+                    android:src="@drawable/back"
+                    android:layout_alignTop="@+id/back_image_view"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"/>
+            <TextView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/back"
+                    android:id="@+id/back_image_text"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -29,6 +29,7 @@ public class StorageListActivity extends BaseActivity {
     private int selectedPosition;
 
     private String license;
+    private String removeStorage;
     private boolean showLicense;
 
 
@@ -43,6 +44,7 @@ public class StorageListActivity extends BaseActivity {
         initDefaultWidgets();
 
         this.license = getResources().getString(R.string.license);
+        this.removeStorage = getResources().getString(R.string.remove_storag_upper);
         showLicenseDialog();
     }
 
@@ -165,7 +167,7 @@ public class StorageListActivity extends BaseActivity {
             }
         };
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setMessage("Remove storage " + storages.get(selectedPosition) + "?")
+        dialogBuilder.setMessage(this.removeStorage + " " + storages.get(selectedPosition) + "?")
                 .setPositiveButton("Yes", handle)
                 .setNegativeButton("No", handle)
                 .show();

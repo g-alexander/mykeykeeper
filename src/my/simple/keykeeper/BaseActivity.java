@@ -1,23 +1,40 @@
 package my.simple.keykeeper;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
-import android.os.Process;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import my.simple.keykeeper.data.DataProviderFactory;
+import my.simple.keykeeper.data.api.DataBase;
+import my.simple.keykeeper.export.Exporter;
+import my.simple.keykeeper.export.ExporterFactory;
+
+import java.io.File;
 
 /**
  * Created by Alex on 10.06.2014.
  */
 public class BaseActivity extends Activity {
 
+    private final DataBase dataBase = DataProviderFactory.INSTANCE.getDataBase();
+
     private boolean enableMenu = true;
+    private final static int REQUEST_EXPORT_FILE_NAME = 1;
+    private final static int REQUEST_SET_PASSWORD = 2;
+    private final static int REQUEST_IMPORT_FILE_NAME = 3;
+    private final static int REQUEST_IMPORT_STORAGE_NAME = 4;
+
+    private String exportSuccess;
+    private String exportError;
+    private String fileNotFound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +45,10 @@ public class BaseActivity extends Activity {
         initBackButton();
         initExitButton();
         initOptionsButton();
+
+        exportSuccess = getResources().getString(R.string.export_successful);
+        exportError = getResources().getString(R.string.export_error);
+        fileNotFound = getResources().getString(R.string.file_not_found);
     }
 
     private void initOptionsButton() {
@@ -116,6 +137,11 @@ public class BaseActivity extends Activity {
             case R.id.main_menu_exit:
                 exit();
                 break;
+            case R.id.main_menu_export:
+                exportAction();
+                break;
+            case R.id.main_menu_import:
+                importAction();
         }
         return true;
     }
@@ -126,11 +152,102 @@ public class BaseActivity extends Activity {
         startActivity(intent);
     }
 
+    protected void exportAction() {
+        Intent intent = new Intent(getApplicationContext(), FileDialog.class);
+        startActivityForResult(intent, REQUEST_EXPORT_FILE_NAME);
+    }
+
+    protected void importAction() {
+        Intent intent = new Intent(getApplicationContext(), FileDialog.class);
+        startActivityForResult(intent, REQUEST_IMPORT_FILE_NAME);
+    }
+
     public boolean isEnableMenu() {
         return enableMenu;
     }
 
     public void setEnableMenu(boolean enableMenu) {
         this.enableMenu = enableMenu;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_EXPORT_FILE_NAME && resultCode == RESULT_OK) {
+            final String fileName = data.getStringExtra("file_name");
+            final File exportFile = new File(fileName);
+            if (exportFile.exists()) {
+                final DialogInterface.OnClickListener handler = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (i == DialogInterface.BUTTON_POSITIVE) {
+                            getPassword(fileName);
+                        }
+                    }
+                };
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+                dialogBuilder.setMessage(getResources().getString(R.string.override_warning))
+                        .setPositiveButton(R.string.yes, handler)
+                        .setNegativeButton(R.string.no, handler)
+                        .show();
+            } else {
+                getPassword(fileName);
+            }
+        }
+        if (requestCode == REQUEST_SET_PASSWORD && resultCode == RESULT_OK) {
+            final String fileName = data.getStringExtra("file_name");
+            final String password = data.getStringExtra("password");
+            exportProcess(fileName, password);
+        }
+        if (requestCode == REQUEST_IMPORT_FILE_NAME && resultCode == RESULT_OK) {
+            final String fileName = data.getStringExtra("file_name");
+            final File exportFile = new File(fileName);
+            if (exportFile.exists()) {
+                getImportPasswords(fileName);
+            } else {
+                Toast.makeText(this, fileNotFound, Toast.LENGTH_LONG).show();
+            }
+        }
+        if (requestCode == REQUEST_IMPORT_STORAGE_NAME && resultCode == RESULT_OK) {
+            final String fileName = data.getStringExtra("file_name");
+            final String filePassword = data.getStringExtra("file_password");
+            final String storageName = data.getStringExtra("storage_name");
+            final String storagePassword = data.getStringExtra("storage_password");
+            importProcess(fileName, filePassword, storageName, storagePassword);
+        }
+    }
+
+    private void exportProcess(String fileName, String password) {
+        final Exporter exporter = ExporterFactory.createExporter();
+        final String storageName = dataBase.getStorageName();
+        final String storagePassword = dataBase.getStoragePassword();
+        final boolean success = exporter.exportDb(storageName, storagePassword, fileName, password);
+        if (success) {
+            Toast.makeText(this, exportSuccess, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, exportError, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void importProcess(String fileName, String filePassword, String storageName, String storagePassword) {
+        final Exporter exporter = ExporterFactory.createExporter();
+        final boolean success = exporter.importDb(storageName, storagePassword, fileName, filePassword);
+        if (success) {
+            Toast.makeText(this, R.string.import_successful, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, R.string.import_error, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void getImportPasswords(final String fileName) {
+        Intent i = new Intent(getApplicationContext(), GetImportPasswords.class);
+        i.putExtra("file_name", fileName);
+        startActivityForResult(i, REQUEST_IMPORT_STORAGE_NAME);
+    }
+
+    private void getPassword(String fileName) {
+        Intent i = new Intent(getApplicationContext(), SetPasswordActivity.class);
+        i.putExtra("file_name", fileName);
+        startActivityForResult(i, REQUEST_SET_PASSWORD);
+        //Toast.makeText(this, fileName, Toast.LENGTH_LONG).show();
     }
 }

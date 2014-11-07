@@ -60,4 +60,30 @@
     <string name="add_new_category">Add new category</string>
     <string name="close">Close</string>
     <string name="all">All</string>
+    <string name="directory">Directory</string>
+    <string name="changed">Changed</string>
+    <string name="file">File</string>
+    <string name="up">Up</string>
+    <string name="export">Export</string>
+    <string name="override_warning">File exist, override?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="enter_password">Enter password</string>
+    <string name="export_successful">Storage exported successful</string>
+    <string name="export_error">Export error</string>
+    <string name="import_label">Import</string>
+    <string name="file_not_found">File not found</string>
+
+    <string name="enter_import_information">Import information</string>
+    <string name="file_password">File password</string>
+    <string name="enter_file_password">Enter file password</string>
+    <string name="enter_storage_password">Enter storage password</string>
+    <string name="import_successful">Storage import successful</string>
+    <string name="import_error">Import error</string>
+    <string name="edit_name">edit name</string>
+    <string name="remove_storage">remove storage</string>
+    <string name="remove_storag_upper">Remove storage</string>
+    <string name="select">Select file</string>
+    <string name="copied_to_clipboard">copied to clipboard</string>
+            
 </resources>

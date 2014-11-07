@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="my.simple.keykeeper"
-          android:versionCode="5"
+          android:versionCode="6"
           android:versionName="1.3.2">
     <uses-sdk android:minSdkVersion="10"/>
 
@@ -28,6 +28,9 @@
         <activity android:name=".StoragePasswordActivity" android:theme="@android:style/Theme.Dialog" android:noHistory="true"/>
         <activity android:name=".EditStorageActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".OptionsActivity"/>
+        <activity android:name=".FileDialog"/>
+        <activity android:name=".SetPasswordActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".GetImportPasswords"/>
 
     </application>
 

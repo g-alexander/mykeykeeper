@@ -23,7 +23,7 @@ public class DataBaseImpl implements DataBase {
     private Map<Integer, KeyRecord> records;
     private String storageName = "default";
     private String storagePassword = "default";
-    final String currentVersion = VERSION_1_1;
+    private final String currentVersion = VERSION_1_1;
 
     public DataBaseImpl() {
         this.categories = new HashMap<Integer, Category>();
@@ -305,4 +305,18 @@ public class DataBaseImpl implements DataBase {
         }
     }
 
+    @Override
+    public String getCurrentVersion() {
+        return currentVersion;
+    }
+
+    @Override
+    public String getStorageName() {
+        return this.storageName;
+    }
+
+    @Override
+    public String getStoragePassword() {
+        return this.storagePassword;
+    }
 }

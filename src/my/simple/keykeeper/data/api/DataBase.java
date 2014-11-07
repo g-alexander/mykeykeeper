@@ -30,4 +30,7 @@ public interface DataBase {
     public void removeKeyRecord(KeyRecord record);
     public void selectStorage(String storageName, String storagePassword);
     public Collection<KeyRecord> getRecordsByCategory(Category category);
+    public String getCurrentVersion();
+    public String getStorageName();
+    public String getStoragePassword();
 }

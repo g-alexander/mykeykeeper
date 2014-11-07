@@ -28,124 +28,196 @@
                       android:layout_height="1dp"
                       android:layout_marginTop="3dp"
                       android:background="@drawable/preview_gradient"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/name"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:id="@+id/textView"
-                    android:textStyle="bold"/>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:id="@+id/preview_field_name"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/name_upper"
-                    android:textColor="#E0E0E0"/>
-            <TextView android:layout_width="fill_parent"
-                      android:layout_height="1dp"
-                      android:layout_marginTop="5dp"
-                      android:background="@drawable/preview_gradient"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/category"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:id="@+id/textView3"
-                    android:textStyle="bold"/>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/preview_field_category"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/category_upper"
-                    android:textColor="#E0E0E0"/>
-            <TextView android:layout_width="fill_parent"
-                      android:layout_height="1dp"
-                      android:layout_marginTop="5dp"
-                      android:background="@drawable/preview_gradient"/>
-
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/login"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:id="@+id/textView4"
-                    android:textStyle="bold"/>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:id="@+id/preview_field_login"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/login_upper"
-                    android:textColor="#E0E0E0"/>
-            <TextView android:layout_width="fill_parent"
-                      android:layout_height="1dp"
-                      android:layout_marginTop="5dp"
-                      android:background="@drawable/preview_gradient"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/password"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:id="@+id/textView5"
-                    android:textStyle="bold"/>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp"
-                    android:id="@+id/preview_field_password"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/password_upper"
-                    android:textColor="#E0E0E0"/>
-            <TextView android:layout_width="fill_parent"
-                      android:layout_height="1dp"
-                      android:layout_marginTop="5dp"
-                      android:background="@drawable/preview_gradient"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/description"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="3dp"
-                    android:id="@+id/textView6"
-                    android:textStyle="bold"/>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginRight="5dp"
-                    android:id="@+id/preview_field_description"
-                    android:text="@string/description_upper"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="#E0E0E0"/>
-            <TextView android:layout_width="fill_parent"
-                      android:layout_height="1dp"
-                      android:layout_marginTop="3dp"
-                      android:background="@drawable/preview_gradient"/>
+            <RelativeLayout android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/preview_name_copy_field">
+                <ImageView android:layout_width="20dp"
+                           android:layout_height="20dp"
+                           android:src="@drawable/copy"
+                           android:layout_marginRight="5dp"
+                           android:layout_marginTop="5dp"
+                           android:id="@+id/preview_name_copy_image"
+                           android:layout_alignParentRight="true"/>
+                <LinearLayout android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/name"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:id="@+id/textView"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:id="@+id/preview_field_name"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/name_upper"
+                            android:textColor="#E0E0E0"/>
+                    <TextView android:layout_width="fill_parent"
+                              android:layout_height="1dp"
+                              android:layout_marginTop="5dp"
+                              android:background="@drawable/preview_gradient"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/preview_category_copy_field">
+                <ImageView android:layout_width="20dp"
+                           android:layout_height="20dp"
+                           android:src="@drawable/copy"
+                           android:id="@+id/preview_category_copy_image"
+                           android:layout_marginRight="5dp"
+                           android:layout_marginTop="5dp"
+                           android:layout_alignParentRight="true"/>
+                <LinearLayout android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/category"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:id="@+id/textView3"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/preview_field_category"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/category_upper"
+                            android:textColor="#E0E0E0"/>
+                    <TextView android:layout_width="fill_parent"
+                              android:layout_height="1dp"
+                              android:layout_marginTop="5dp"
+                              android:background="@drawable/preview_gradient"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/preview_login_copy_field">
+                <ImageView android:layout_width="20dp"
+                           android:layout_height="20dp"
+                           android:src="@drawable/copy"
+                           android:id="@+id/preview_login_copy_image"
+                           android:layout_marginRight="5dp"
+                           android:layout_marginTop="5dp"
+                           android:layout_alignParentRight="true"/>
+                <LinearLayout android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/login"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:id="@+id/textView4"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:id="@+id/preview_field_login"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/login_upper"
+                            android:textColor="#E0E0E0"/>
+                    <TextView android:layout_width="fill_parent"
+                              android:layout_height="1dp"
+                              android:layout_marginTop="5dp"
+                              android:background="@drawable/preview_gradient"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/preview_password_copy_field">
+                <ImageView android:layout_width="20dp"
+                           android:layout_height="20dp"
+                           android:src="@drawable/copy"
+                           android:id="@+id/preview_password_copy_image"
+                           android:layout_marginRight="5dp"
+                           android:layout_marginTop="5dp"
+                           android:layout_alignParentRight="true"/>
+                <LinearLayout android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/password"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:id="@+id/textView5"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:id="@+id/preview_field_password"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/password_upper"
+                            android:textColor="#E0E0E0"/>
+                    <TextView android:layout_width="fill_parent"
+                              android:layout_height="1dp"
+                              android:layout_marginTop="5dp"
+                              android:background="@drawable/preview_gradient"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/preview_description_copy_field">
+                <ImageView android:layout_width="20dp"
+                           android:layout_height="20dp"
+                           android:src="@drawable/copy"
+                           android:id="@+id/preview_description_copy_image"
+                           android:layout_marginRight="5dp"
+                           android:layout_marginTop="5dp"
+                           android:layout_alignParentRight="true"/>
+                <LinearLayout android:layout_width="fill_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="vertical">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/description"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:id="@+id/textView6"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="5dp"
+                            android:id="@+id/preview_field_description"
+                            android:text="@string/description_upper"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#E0E0E0"/>
+                    <TextView android:layout_width="fill_parent"
+                              android:layout_height="1dp"
+                              android:layout_marginTop="3dp"
+                              android:background="@drawable/preview_gradient"/>
+                </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
