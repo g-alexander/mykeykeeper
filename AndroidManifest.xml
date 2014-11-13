@@ -28,7 +28,7 @@
         <activity android:name=".StoragePasswordActivity" android:theme="@android:style/Theme.Dialog" android:noHistory="true"/>
         <activity android:name=".EditStorageActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".OptionsActivity"/>
-        <activity android:name=".FileDialog"/>
+        <activity android:name=".FileDialog" android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".SetPasswordActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".GetImportPasswords"/>
 

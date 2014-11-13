@@ -44,12 +44,14 @@ public class GetImportPasswords extends Activity {
             }
         });
         TextView saveText = (TextView)findViewById(R.id.get_import_button_ok_text);
-        saveText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveButtonClicked();
-            }
-        });
+        if (saveText != null) {
+            saveText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    saveButtonClicked();
+                }
+            });
+        }
 
         final View cancelButton = findViewById(R.id.get_import_button_cancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -59,12 +61,14 @@ public class GetImportPasswords extends Activity {
             }
         });
         TextView cancelText = (TextView)findViewById(R.id.get_import_button_cancel_text);
-        cancelText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cancelButtonClicked();
-            }
-        });
+        if (cancelText != null) {
+            cancelText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    cancelButtonClicked();
+                }
+            });
+        }
     }
 
     private void saveButtonClicked() {

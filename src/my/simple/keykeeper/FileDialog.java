@@ -42,12 +42,14 @@ public class FileDialog extends BaseActivity {
             }
         });
         TextView selectText = (TextView)findViewById(R.id.file_name_ok_text);
-        selectText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onSelect();
-            }
-        });
+        if (selectText != null) {
+            selectText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onSelect();
+                }
+            });
+        }
     }
 
     private void onSelect() {
